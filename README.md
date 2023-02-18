@@ -18,7 +18,7 @@ I will use a TableNet model with a DenseNet121 as the main encoder.
 
 I tried different encoders like VGG-19, ResNet, DenseNet121, efficientNet_B0, efficientNet and I got the best results with DenseNet121
 
-> Note model itsel fis not uploaded because it's too big for github uploads, you will be able to download the model in the future from this link. TK
+> Note model itself is not uploaded because it's too big for github uploads, you will be able to download the model in the future from this link. TK
 
 ## Model Predictions:
 
