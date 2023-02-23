@@ -1,0 +1,12 @@
+pytesseract
+opencv-python
+numpy
+pandas
+Pillow
+tqdm
+torch
+albumentations
+torchvision
+sklearn
+pytorch_model_summary
+matplotlib

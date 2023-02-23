@@ -34,6 +34,8 @@ The tables the model will detect and be any of the following:
 
 So I had an idea which is, no matter what the table is of the above, remove all of the horizontal and vertical gridlines (if you find any), and then apply an opencv algorithm in order to detect the proper locations of all the gridlines and draw them artificially.
 
+You can find this idea implemented in the folder called GridlinesImprovement.
+
 ## Extract Tabular Data using `pytesseract`
 
 Using the library `pytesseract` extract and process the tabular data and convert it into a dataframe.
