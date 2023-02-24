@@ -1,6 +1,7 @@
 import cv2
 import matplotlib.pyplot as plt
-from GridlinesImprovement.draw_gridlines_functions import getHorizontalCnt, getVerticalCnt, drawHorizontalLines, drawVerticalLines
+from GridlinesImprovement.draw_gridlines_functions import drawGridlines
+from GridlinesImprovement.cropping import cropImage
 from GridlinesImprovement.remove_gridlines import removeLines
 
 
@@ -9,15 +10,20 @@ new_image_path = "Model Implementation/DummyDatabase/test_images/image_grided.pn
 original = cv2.imread(image_path)
 # Remove all gridlines
 gridless = removeLines(removeLines(original, 'horizontal'), 'vertical')
-# Get vertical lines
-vertical_cnt, hh_ = getVerticalCnt(gridless.copy())
-# Get horizontal lines
-horizontal_cnt, ww_ = getHorizontalCnt(gridless.copy())
-# Draw horizontal lines
-horizontal_only = drawHorizontalLines(gridless.copy(), horizontal_cnt, ww_)
-# Draw vertical lines
-full_grid = drawVerticalLines(horizontal_only.copy(), vertical_cnt, hh_)
+# Draw grid lines
+images_by_stage = drawGridlines(gridless.copy())
+"""
+    images_by_stage: (dict)
+        'threshold': threshold image
+        'vertical': vertical grid lines image
+        'horizontal': horizontal grid lines image
+        'full': full grid lines image
+"""
+# Obtain full grid image
+full_image = images_by_stage['full'].copy()
+# Crop image
+cropped_image = cropImage(full_image.copy())
 # Save new image
-cv2.imwrite(new_image_path, full_grid)
+cv2.imwrite(new_image_path, cropped_image)
 # Show image
-plt.imshow(full_grid)
+plt.imshow(cropped_image)
